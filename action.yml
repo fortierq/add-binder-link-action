@@ -31,5 +31,5 @@ runs:
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit -m 'Add Binder link'
+        git commit -m 'Add Binder link' || true
         git push || true

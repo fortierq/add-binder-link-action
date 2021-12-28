@@ -3,6 +3,7 @@ import re
 
 def add_link(repo, nb, env, branch_repo, branch_env):
     with open(nb, 'r') as f:
+        print(branch_env)
         lines = f.read()
         m = re.search('"# (.*)\\\\n', lines)
         if not m:
