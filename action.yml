@@ -21,7 +21,7 @@ runs:
     - name: Add link
       shell: bash
       run: |
-        for file in **/*.ipynb; do
+        for file in $(find . -name '*.ipynb'); do
           python3 add_binder_link.py ${{ github.repository }} $file ${{ inputs.env }} {{ inputs.branch-env }} ${GITHUB_REF##*/}
         done
 
