@@ -20,7 +20,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
             print(f"Binder link is already in {nb}")
             if not force:
                 return
-            m = re.search("'>([^<]*)<img", m.string)
+            m = re.search("'>([^<]*)", m.string)
         i, j = m.start(1), m.end(1)
         title = m.group(1)
         repo_nb = repo.split("/")[-1] + "/" + nb
