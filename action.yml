@@ -3,11 +3,11 @@ description: 'Add Binder link to all notebooks'
 inputs:
   env:
     description: 'GitHub repo defining the Binder environment'
-    required: true
+    required: false
     default: 'binder-examples/conda'
   branch-env:
     description: 'Branch of the Binder environment'
-    required: true
+    required: false
     default: 'master'
 
 runs:
