@@ -1,7 +1,7 @@
 import sys
 import re
 
-def add_link(repo, nb, env, branch_repo="main", branch_env="main"):
+def add_link(repo, nb, env, branch_repo, branch_env):
     with open(nb, 'r') as f:
         lines = f.read()
         m = re.search('"# (.*)\\\\n', lines)
