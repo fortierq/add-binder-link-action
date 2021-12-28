@@ -9,7 +9,11 @@ inputs:
     description: 'Branch of the Binder environment'
     required: false
     default: 'main'
-
+  force:
+    description: 'Force the generation of every link (even if a link was already present)'
+    required: false
+    default: 'false'
+  
 runs:
   using: 'composite'
   steps:

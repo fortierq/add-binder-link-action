@@ -1,7 +1,7 @@
 import re
 import sys
 
-def add_link(repo, nb, env, branch_repo, branch_env, force=False):
+def add_link(repo, nb, env, branch_repo, branch_env, force):
     """Add a link to binder in the title of nb
     Args:
         repo: repository of the notebook
@@ -31,4 +31,4 @@ def add_link(repo, nb, env, branch_repo, branch_env, force=False):
     with open(nb, 'w') as f:
         f.write(lines[:i] + title + lines[j:])
 
-add_link(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
+add_link(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6].lower() == 'true')
