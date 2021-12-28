@@ -4,7 +4,7 @@ inputs:
   env:
     description: 'GitHub repo defining the Binder environment'
     required: false
-    default: 'binder-examples/conda'
+    default: 'binder-examples/conda_environment'
   branch-env:
     description: 'Branch of the Binder environment'
     required: false
