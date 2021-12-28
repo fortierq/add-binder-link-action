@@ -1,11 +1,11 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Add Binder link'
+description: 'Add Binder link to notebooks'
 runs:
   using: "composite"
   steps:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.10 
+        python-version: 3.9 
     - run: python3 add_binder_link.py ${{ github.repository }} nb/machine_learning/SVM.ipynb fortierq/binder-oc master main
       shell: bash
