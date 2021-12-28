@@ -1,19 +1,35 @@
-name: "Add Binder link"
-description: 'Add Binder link to notebooks'
+name: 'Add Binder link'
+description: 'Add Binder link to all notebooks'
+inputs:
+  env:
+    description: 'GitHub repo defining the Binder environment'
+    required: false
+    default: 'binder-examples/conda'
+  branch-env:
+    description: 'Branch of the Binder environment'
+    required: false
+    default: 'master'
+
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9 
-    - run: python3 add_binder_link.py ${{ github.repository }} nb/machine_learning/SVM.ipynb fortierq/binder-oc master main
+        python-version: 3.9
+      
+    - name: Add link
       shell: bash
-    - name: "Push"
+      run: |
+        for file in **/*.ipynb; do
+          python3 add_binder_link.py ${{ github.repository }} $file ${{ inputs.env }} {{ inputs.branch-env }} ${GITHUB_REF##*/}
+        done
+
+    - name: Push
       shell: bash
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit -m "Add Binder link"
+        git commit -m 'Add Binder link'
         git push || true

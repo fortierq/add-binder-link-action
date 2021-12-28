@@ -9,7 +9,7 @@ def add_link(repo, nb, env, branch_repo="main", branch_env="main"):
             print(f"Error: {nb} does not have a title")
             return
         if "Binder" in m.string:
-            print(f"Binder link is already there")
+            print(f"Binder link is already in {nb}")
             return
         i, j = m.start(1), m.end(1)
         title = m.group(1)
