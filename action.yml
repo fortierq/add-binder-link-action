@@ -4,5 +4,4 @@ runs:
   using: "composite"
   steps:
     - run: ls
-      shell: bash
     - run: echo ${{ github.repository }}
