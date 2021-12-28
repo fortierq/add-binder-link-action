@@ -26,7 +26,7 @@ runs:
       shell: bash
       run: |
         for file in $(find . -name '*.ipynb'); do
-          python3 ${{ github.action_path }}/add_binder_link.py ${{ github.repository }} ${file##./} ${{ inputs.env }} ${GITHUB_REF##*/} ${{ inputs.branch-env }}
+          python3 ${{ github.action_path }}/add_binder_link.py ${{ github.repository }} ${file##./} ${{ inputs.env }} ${GITHUB_REF##*/} ${{ inputs.branch-env }} ${{ inputs.force }}
         done
 
     - name: Push
