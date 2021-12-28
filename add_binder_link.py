@@ -1,9 +1,16 @@
-import sys
 import re
+import sys
 
-def add_link(repo, nb, env, branch_repo, branch_env, force=false):
+def add_link(repo, nb, env, branch_repo, branch_env, force=False):
+    """Add a link to binder in the title of nb
+    Args:
+        repo: repository of the notebook
+        nb: path to the notebook relative to repo
+        env: repository for the Binder environment
+        branch_repo: branch for repo
+        branch_env: branch for env
+    """    
     with open(nb, 'r') as f:
-        print(branch_env)
         lines = f.read()
         m = re.search('"# (.*)\\\\n', lines)
         if not m:
