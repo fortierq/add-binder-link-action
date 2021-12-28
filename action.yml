@@ -8,7 +8,7 @@ inputs:
   branch-env:
     description: 'Branch of the Binder environment'
     required: false
-    default: 'master'
+    default: 'main'
 
 runs:
   using: 'composite'
