@@ -9,8 +9,9 @@ runs:
         python-version: 3.9 
     - run: python3 add_binder_link.py ${{ github.repository }} nb/machine_learning/SVM.ipynb fortierq/binder-oc master main
       shell: bash
-    - run: |
+    - name: "Push"
       shell: bash
+      run: |
         git add .
         git commit -m "Add Binder link"
         git push || true
