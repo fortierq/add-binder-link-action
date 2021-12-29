@@ -26,7 +26,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
         repo_nb = repo.split("/")[-1] + "/" + nb
         def F(s): return s.replace('/', '%252F')
         url = f"https://mybinder.org/v2/gh/{ env }/{ branch_env }?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252F{ F(repo) }%26urlpath%3Dlab%252Ftree%252F{ F(repo_nb) }%26branch%3D{ branch_repo }"
-        title = f"<center><a href='{url}'>{title}<img src=https://mybinder.org/badge.svg></a></center>"
+        title = f"<center><a href='{url}'>{title} <img src=https://mybinder.org/badge.svg></a></center>"
 
     with open(nb, 'w') as f:
         f.write(lines[:i] + title + lines[j:])
