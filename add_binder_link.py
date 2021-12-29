@@ -22,6 +22,9 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
             if not force:
                 return
             m = re.search("'>([^<]*)", m.string)
+            if not m:
+                print(f"Error: can't modify title {nb}")
+                return
         title = m.group(1)
         repo_nb = repo.split("/")[-1] + "/" + nb
         def F(s): return s.replace('/', '%252F')
