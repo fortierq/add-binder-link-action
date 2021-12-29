@@ -13,6 +13,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
     with open(nb, 'r') as f:
         lines = f.read()
         m = re.search('"# (.*)\\\\n', lines)
+        i, j = m.start(1), m.end(1)
         if not m:
             print(f"Error: {nb} does not have a title")
             return
@@ -21,7 +22,6 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
             if not force:
                 return
             m = re.search("'>([^<]*)", m.string)
-        i, j = m.start(1), m.end(1)
         title = m.group(1)
         repo_nb = repo.split("/")[-1] + "/" + nb
         def F(s): return s.replace('/', '%252F')
