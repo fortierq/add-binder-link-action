@@ -13,10 +13,10 @@ def add_link(repo, nb, env, branch_repo, branch_env, force):
     with open(nb, 'r') as f:
         lines = f.read()
         m = re.search('"# (.*)\\\\n', lines)
-        i, j = m.start(1), m.end(1)
         if not m:
             print(f"Error: {nb} does not have a title")
             return
+        i, j = m.start(1), m.end(1)
         if "binder" in m.string:
             print(f"Binder link is already in {nb}")
             if not force:
