@@ -1,6 +1,7 @@
 # add-binder-link-action
 
-This GitHub action automatically adds a Binder link to every notebook in a repository, and push the changes.
+This GitHub action automatically adds a Binder link to every notebook in a repository, and push the changes.  
+It works by looking at the first line of the form `# ...`
 
 Example:
 
