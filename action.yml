@@ -17,6 +17,10 @@ inputs:
     description: 'Force the generation of every link (even if a link was already present)'
     required: false
     default: 'false'
+  server:
+    description: 'Specify basthon to use Basthon'
+    required: false
+    default: 'binder'
   
 runs:
   using: 'composite'
@@ -30,7 +34,7 @@ runs:
       shell: bash
       run: |
         for file in $(find . -name '*.ipynb'); do
-          python3 ${{ github.action_path }}/add_binder_link.py ${{ github.repository }} ${file##./} ${{ inputs.env }} ${GITHUB_REF##*/} ${{ inputs.branch-env }} ${{ inputs.force }}
+          python3 ${{ github.action_path }}/add_binder_link.py ${{ github.repository }} ${file##./} ${{ inputs.env }} ${GITHUB_REF##*/} ${{ inputs.branch-env }} ${{ inputs.force }} ${{ inputs.server }}
         done
 
     - name: Push
