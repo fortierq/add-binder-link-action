@@ -1,7 +1,7 @@
 import re
 import sys
 
-def add_link(repo, nb, env, branch_repo, branch_env, force, basthon=False):
+def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
     """Add a link to binder in the title of nb
     Args:
         repo: repository of the notebook
@@ -30,7 +30,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, basthon=False):
         def F(s): return s.replace('/', '%252F')
         url = f"https://mybinder.org/v2/gh/{ env }/{ branch_env }?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252F{ F(repo) }%26urlpath%3Dlab%252Ftree%252F{ F(repo_nb) }%26branch%3D{ branch_repo }"
         badge = "https://mybinder.org/badge.svg>"
-        if basthon:
+        if server == "basthon":
             url = f"https://notebook.basthon.fr/?from={repo_nb}"
             badge = "https://framagit.org/uploads/-/system/project/avatar/55763/basthon_shadow.png"
         title = f"<center><a href='{url}'>{title} <img src={badge}></a></center>"
