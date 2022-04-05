@@ -1,7 +1,7 @@
 import re
 import sys
 
-def add_link(repo, nb, env, branch_repo, branch_env, force, basthon=false):
+def add_link(repo, nb, env, branch_repo, branch_env, force, basthon=False):
     """Add a link to binder in the title of nb
     Args:
         repo: repository of the notebook
