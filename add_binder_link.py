@@ -34,7 +34,6 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
             url = f"https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/{branch_repo}/{repo}/{nb}"
             badge = "https://framagit.org/uploads/-/system/project/avatar/55763/basthon_shadow.png"
         title = f"<center><a href='{url}'>{title} <img src={badge} width=100></a></center>"
-https://github.com/fortierq/itc1/files/5_graph/tp/tp2/tp_graph2.ipynb
     with open(nb, 'w') as f:
         f.write(lines[:i] + title + lines[j:])
 
