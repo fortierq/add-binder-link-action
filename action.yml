@@ -34,6 +34,7 @@ runs:
       shell: bash
       run: |
         for file in $(find . -name '*.ipynb'); do
+          echo ${{ inputs.server }}
           python3 ${{ github.action_path }}/add_binder_link.py ${{ github.repository }} ${file##./} ${{ inputs.env }} ${GITHUB_REF##*/} ${{ inputs.branch-env }} ${{ inputs.force }} ${{ inputs.server }}
         done
 
