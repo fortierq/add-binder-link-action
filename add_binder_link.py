@@ -41,4 +41,4 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
     with open(nb, 'w') as f:
         f.write(lines[:i] + title + lines[j:])
 
-add_link(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6].lower() == 'true')
+add_link(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6].lower() == 'true', sys.argv[7])
