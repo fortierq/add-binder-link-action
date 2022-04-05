@@ -33,7 +33,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
         if server == "basthon":
             url = f"https://notebook.basthon.fr/?from={repo_nb}"
             badge = "https://framagit.org/uploads/-/system/project/avatar/55763/basthon_shadow.png"
-        title = f"<center><a href='{url}'>{title} <img src={badge}></a></center>"
+        title = f"<center><a href='{url}'>{title} <img src={badge} width=100></a></center>"
         print(f"Add link: {title}")
 
     with open(nb, 'w') as f:
