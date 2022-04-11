@@ -17,7 +17,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
             print(f"Error: {nb} does not have a title")
             return
         i, j = m.start(1), m.end(1)
-        if "binder" in m.group(1):
+        if "server" in m.group(1):
             print(f"Binder link is already in {nb}")
             if not force:
                 return
