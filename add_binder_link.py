@@ -9,6 +9,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
         env: repository for the Binder environment
         branch_repo: branch for repo
         branch_env: branch for env
+        server: binder, basthon or colab
     """
     with open(nb, 'r') as f:
         lines = f.read()
@@ -17,7 +18,7 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
             print(f"Error: {nb} does not have a title")
             return
         i, j = m.start(1), m.end(1)
-        if "binder" in m.group(1) or "basthon" in m.group(1):
+        if "href" in m.group(1):
             print(f"Binder link is already in {nb}")
             if not force:
                 return
@@ -33,6 +34,9 @@ def add_link(repo, nb, env, branch_repo, branch_env, force, server="binder"):
         if server == "basthon":
             url = f"https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/{repo}/{branch_repo}/{nb}"
             badge = "https://framagit.org/uploads/-/system/project/avatar/55763/basthon_shadow.png"
+        if server == "colab":
+            url = f"https://colab.research.google.com/github/{repo}/blob/{branch_repo}/{nb}"
+            badge = "https://colab.research.google.com/assets/colab-badge.svg"
         title = f"<center><a href='{url}'>{title} <img src={badge} width=100></a></center>"
     with open(nb, 'w') as f:
         f.write(lines[:i] + title + lines[j:])

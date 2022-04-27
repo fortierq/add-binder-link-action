@@ -18,7 +18,7 @@ inputs:
     required: false
     default: 'false'
   server:
-    description: 'Specify basthon to use Basthon'
+    description: 'Specify the server: binder, basthon or colab'
     required: false
     default: 'binder'
   
